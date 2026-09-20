@@ -1,5 +1,3 @@
-package src.main;
-
 public class Calculadora {
 
     public static int somar(int a, int b) {
