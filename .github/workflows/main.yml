@@ -1,0 +1,34 @@
+name: Testes da Calculadora
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  testes:
+    name: Executar testes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Verificar versão do Java
+        run: java -version
+
+      - name: Compilar código
+        run: javac src/*.java
+
+      - name: Executar testes
+        run: java -cp src CalculadoraTest
