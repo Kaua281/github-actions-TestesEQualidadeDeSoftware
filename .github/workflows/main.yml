@@ -25,10 +25,26 @@ jobs:
           distribution: 'temurin'
 
       - name: Verificar versão do Java
-        run: java -version
+        run: |
+          java -version
+          javac -version
 
       - name: Compilar código
-        run: javac src/*.java
+        run: |
+          mkdir -p target/classes
+
+          javac -d target/classes \
+            src/main/Calculadora.java \
+            src/test/CalculadoraTest.java
 
       - name: Executar testes
-        run: java -cp src CalculadoraTest
+        run: |
+          java -cp target/classes CalculadoraTest
+
+      - name: Testes concluídos
+        if: success()
+        run: echo "Todos os testes foram executados com sucesso!"
+
+      - name: Testes falharam
+        if: failure()
+        run: echo "Um ou mais testes falharam."
