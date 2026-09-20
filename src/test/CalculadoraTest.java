@@ -1,5 +1,3 @@
-import src.main.Calculadora;
-
 public class CalculadoraTest {
 
     private static int testesExecutados = 0;

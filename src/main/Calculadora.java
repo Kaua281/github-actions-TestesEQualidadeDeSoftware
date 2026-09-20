@@ -19,8 +19,4 @@ public class Calculadora {
 
         return a / b;
     }
-
-    public static void main(String[] args) {
-        System.out.println(multiplicar(2, 2));
-    }
 }
