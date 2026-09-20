@@ -1,5 +1,7 @@
 
-package src;
+package src.test;
+
+import src.main.Calculadora;
 
 public class CalculadoraTest {
 
